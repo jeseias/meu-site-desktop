@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import Pages from './Pages/routes'
 
 // Styles
-import GlobalStyles from './Styles/GlobalStyles'
+import { GlobalStyles } from './Styles'
 
 export default () => 
   <BrowserRouter>
