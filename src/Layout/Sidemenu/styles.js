@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { secondaryColor, tertiaryColor, lightGray } from '../../Styles/variables'
+import { secondaryColor, tertiaryColor } from '../../Styles/variables'
 import { centerContent, smoothTransition } from '../../Styles/mixins'
 
 export const Container = styled.div`
@@ -12,6 +12,9 @@ export const Container = styled.div`
   background: ${secondaryColor};
   z-index: 10;
   box-shadow: 0 0 1rem #000;
+  ${smoothTransition};
+
+  ${ props => props.display ? 'left: -13.29%': ''};
 
   header {
     height: 80px; 
@@ -38,15 +41,21 @@ export const Menu = styled.div`
   padding-top: 5rem;
 
   a {
-    background: rgba(0,0,0, .6);
+    background: rgba(0,0,0, .2);
     color: #fff;
     width: 100%;
-    padding: 1.8rem 1rem; 
+    padding: 1.8rem 1rem;
+    ${smoothTransition};
+
+    &:hover {
+      background: rgba(0,0,0, .5);
+    } 
 
     &.active {
       border-right: 3px solid ${tertiaryColor};
       font-weight: bold;
       color: ${tertiaryColor};
+      background: rgba(0,0,0, .5);
     }
   }
 `
