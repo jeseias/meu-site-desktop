@@ -38,13 +38,15 @@ export const Menu = styled.div`
   padding-top: 5rem;
 
   a {
-    background: ${lightGray};
-    color: #000;
+    background: rgba(0,0,0, .6);
+    color: #fff;
     width: 100%;
     padding: 1.8rem 1rem; 
 
     &.active {
       border-right: 3px solid ${tertiaryColor};
+      font-weight: bold;
+      color: ${tertiaryColor};
     }
   }
 `
