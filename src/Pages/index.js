@@ -7,6 +7,7 @@ import Sidemnu from '../Layout/Sidemenu'
 
 import Dashboard from './Dashboard' 
 import Profile from './Profile'
+import Service from './Servicepage'
 
 export default () =>
 <>
@@ -15,5 +16,6 @@ export default () =>
   <Switch> 
     <Route path='/pages/dashboard' component={Dashboard}/> 
     <Route path='/pages/profile' component={Profile}/>
+    <Route path='/pages/services' component={Service}/>
   </Switch>
 </>
