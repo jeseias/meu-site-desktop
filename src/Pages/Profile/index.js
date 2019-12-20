@@ -4,5 +4,5 @@ import { Container } from './styles'
 
 export default () =>
   <Container> 
-      <h1>Profule pafe</h1>
+      <h1>Profile page</h1>
   </Container>
