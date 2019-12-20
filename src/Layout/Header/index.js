@@ -15,8 +15,7 @@ return (
       <img src="" alt=""/>
       <FaCaretDown size={16} className='caret' onClick={() => setDisplay(!display)}/>
     </ProfileSettings>
-    <DropDownMenu display={display} onMouseLeave={() => setDisplay(!display)}>
-      <li> <Link to='/profile'>Perfil</Link> </li>
+    <DropDownMenu display={display} onMouseLeave={() => setDisplay(!display)}> 
       <li> <Link to='/'>Sair</Link> </li>
     </DropDownMenu> 
   </Header>

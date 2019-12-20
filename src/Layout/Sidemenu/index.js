@@ -8,13 +8,14 @@ import { Container, Menu } from './styles'
 export default () => {
   const [display, setDisplay] = useState(false)
   const [links, setLinks] = useState([
-    { to: '/dashboard', name: 'Início', active: true },
-    { to: '/services',name: 'Serviços', active: false },
-    { to: '/clientes',name: 'Clientes', active: false },
-    { to: '/messages',name: 'Mensagens', active: false },
-    { to: '/profile',name: 'Perfil', active: false }
+    { to: '/pages/dashboard', name: 'Início', active: true },
+    { to: '/pages/services',name: 'Serviços', active: false },
+    { to: '/pages/clientes',name: 'Clientes', active: false },
+    { to: '/pages/messages',name: 'Mensagens', active: false },
+    { to: '/pages/profile',name: 'Perfil', active: false }
   ]) 
 
+  // Change the active link
   const handleChangeLink = name => {  
     const newItems = links.map( item => {
       if( item.name === name) { 
@@ -26,11 +27,16 @@ export default () => {
     setLinks(newItems)   
   }  
 
+  const handleHideMenu = () => {
+    document.querySelector('.PageContent').classList.toggle('active')
+    setDisplay(!display)
+  }
+
 
 return( 
   <Container display={display}>
     <header> 
-      <FaBars size={26} onClick={() => setDisplay(!display)}/>
+      <FaBars size={26} onClick={() => handleHideMenu()}/>
     </header>
     <Menu>
       {links.map(link => 

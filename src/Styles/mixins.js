@@ -1,6 +1,5 @@
-import { backgrounColor } from './variables'
 import { device } from './device'
-import { darkGray, tertiaryColor } from './variables'
+import { darkGray, tertiaryColor } from './variables' 
 
 // Repetead styles stay here
 export const centerContent = `
@@ -25,14 +24,17 @@ export const positionAbsoluteCenter = (t, l) => `
 `
 
 export const PageContainer = `
-  width: 90%; 
-  min-height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0; 
-  z-index: 1;
-  background: ${backgrounColor};  
-  overflow-y: sroll; 
+  position: fixed;
+  top: 100px;
+  right: 24px;
+  height: calc(100vh - 120px);
+  background: #333;
+  width: 81.2vw; 
+  ${smoothTransition};
+
+  &.active {
+    width: 95vw;
+  }
 
   * {
     overflow: hidden;

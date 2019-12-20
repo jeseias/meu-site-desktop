@@ -18,7 +18,7 @@ export default ({ history }) => {
 
     try {
       await api.post('/authentication', { email, password })  
-      history.push('/dashboard')
+      history.push('/pages/dashboard')
     } catch (error) {
       console.log('Error:', error)
     }
