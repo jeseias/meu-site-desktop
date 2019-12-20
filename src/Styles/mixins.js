@@ -36,6 +36,29 @@ export const PageContainer = `
   box-shadow: 0 0 1rem rgba(0,0,0,.5);
   background: ${primaryColor};
 
+  /* width */
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    display: block;
+    position: relative;
+    left: 5rem;
+    background: #f4f4f4;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: ${tertiaryColor};
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
   &.active {
     width: 95vw;
   }
