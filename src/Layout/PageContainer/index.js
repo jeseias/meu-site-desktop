@@ -1,14 +1,10 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
+import React from 'react' 
 
-// Pages
-import Loginpage from '../../Pages/Login'
-import Dashboard from '../../Pages/Dashboard' 
+import Pages from '../../Pages'
 
 import { PageContainer } from './styles'
 
 export default () => 
   <PageContainer> 
-    <Route exact path='/' component={Loginpage}/>
-    <Route path='/dashboard' component={Dashboard}/>
+    <Pages />
   </PageContainer>

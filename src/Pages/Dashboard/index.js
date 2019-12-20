@@ -1,13 +1,7 @@
-import React from 'react' 
-
-
-import Header from '../../Layout/Header'
-import Sidemenu from '../../Layout/Sidemenu'
+import React from 'react'  
  
 import { Container } from './styles'
 
 export default () => 
-  <Container> 
-    <Header />
-    <Sidemenu />
+  <Container>  
   </Container>

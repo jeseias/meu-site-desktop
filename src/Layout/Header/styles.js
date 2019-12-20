@@ -62,9 +62,10 @@ export const DropDownMenu = styled.ul`
   box-shadow: 0 0 1rem ${backgrounColor};
   width: 200px;
   text-align: right;
+  z-index: -1;
   opacity: 0;
 
-  ${props => props.display ? 'opacity: 1; top: 75%' : ''};
+  ${props => props.display ? 'opacity: 1; top: 75%; z-index: 1' : ''};
 
   li {
     ${smoothTransition};  
