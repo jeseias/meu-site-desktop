@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-import { tertiaryColor, darkGray } from './variables'
+import { tertiaryColor, darkGray, secondaryColor } from './variables'
 import { centerContent, positionAbsoluteCenter } from './mixins'
 
 
@@ -18,6 +18,7 @@ export const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
     width: 100vw; 
     overflow-x: hidden; 
+    background: ${secondaryColor};
   }
 
   body, button, input {

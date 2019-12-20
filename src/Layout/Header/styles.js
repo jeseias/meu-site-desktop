@@ -10,6 +10,7 @@ export const Header = styled.header`
   border-bottom: 2px solid ${tertiaryColor};
   padding: .2rem 2rem;
   position: relative;
+  box-shadow: 0 .5rem 1rem ${backgrounColor};
 `
 
 export const ProfileSettings = styled.div`
@@ -20,6 +21,7 @@ export const ProfileSettings = styled.div`
   right: 10%; 
   ${centerContent}; 
   flex-direction: row;
+  
 
   img {
     display: block;

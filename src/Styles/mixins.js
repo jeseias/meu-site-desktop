@@ -1,5 +1,5 @@
 import { device } from './device'
-import { darkGray, tertiaryColor } from './variables' 
+import { darkGray, tertiaryColor, backgrounColor, primaryColor } from './variables' 
 
 // Repetead styles stay here
 export const centerContent = `
@@ -28,9 +28,13 @@ export const PageContainer = `
   top: 100px;
   right: 24px;
   height: calc(100vh - 120px);
-  background: #333;
+  color: #fff; 
   width: 81.2vw; 
-  ${smoothTransition};
+  ${smoothTransition}; 
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: 0 0 1rem rgba(0,0,0,.5);
+  background: ${primaryColor};
 
   &.active {
     width: 95vw;
