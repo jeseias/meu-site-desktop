@@ -53,15 +53,28 @@ export const Container = styled.div`
         }
       }
 
-      &:hover  {
-        
+      &:hover  { 
         .upload {
           bottom: 0;
-        }
+        } 
+      } 
+    } 
 
+    .details {
+      input {
+        height: auto;
+        margin: .1rem;
+        padding: .2rem .3rem;
       }
 
-    } 
+      textarea {
+        height: auto;
+        margin: .1rem;   
+        padding: .2rem .3rem;
+        min-height: 111px;
+        max-height: 111px; 
+      }
+    }
 
   }
 

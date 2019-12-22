@@ -17,7 +17,9 @@ export default ({ history }) => {
     e.preventDefault() 
 
     try {
-      await api.post('/authentication', { email, password })  
+      const user = await api.post('/authentication', { email, password }) 
+
+      localStorage.setItem('userid', user.data._id) 
       history.push('/pages/dashboard')
     } catch (error) {
       console.log('Error:', error)
