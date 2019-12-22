@@ -1,5 +1,5 @@
 import { device } from './device'
-import { darkGray, tertiaryColor, backgrounColor, primaryColor } from './variables' 
+import { darkGray, tertiaryColor, primaryColor } from './variables' 
 
 // Repetead styles stay here
 export const centerContent = `
