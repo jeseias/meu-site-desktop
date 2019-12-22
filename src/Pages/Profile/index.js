@@ -29,7 +29,8 @@ export default () => {
     data.append('info2', info2)
 
     const userid = localStorage.getItem('userid')
-    await api.patch('/update', data, {
+
+    await api.post('/update', data, {
       headers: {userid}
     }) 
   }
@@ -71,7 +72,7 @@ return (
             onChange={e => setInfo2(e.target.value)} 
             /> 
         </div>
-        <AwesomeBTN type="submit"> Enviar </AwesomeBTN>
+        <AwesomeBTN>Enviar</AwesomeBTN>
       </ContentBox>
     </form>
   </Container>
