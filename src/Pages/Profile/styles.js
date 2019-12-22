@@ -17,8 +17,15 @@ export const Container = styled.div`
       overflow: hidden;
       border-radius: 100%;
       ${centerContent};
-      border: 1px solid #fff;
+      border: 1px dashed #f4f4f4;
       position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      &.hasThumbnail {
+        border: none; 
+      }
 
       .upload {
         display: block;

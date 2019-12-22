@@ -1,4 +1,4 @@
-import React from 'react' 
+import React, { useState, useMemo } from 'react' 
 
 import { MdCameraAlt } from 'react-icons/md'
 
@@ -6,14 +6,31 @@ import { MainTitle } from '../../Styles/typografy'
 import { ContentBox, FormInput, FormArea  } from '../../Styles/components'
 import { Container } from './styles'
 
-export default () =>
+export default () => {
+  const [thumbnail, setThumbnail] = useState(null)
+  const [location, setLocation] = useState('')
+  const [info1, setInfo1] = useState('')
+  const [info2, setInfo2] = useState('')
+  const [projects, setProjects] = useState('')
+
+  const preview = useMemo(() => {
+    return thumbnail ? URL.createObjectURL(thumbnail) : null 
+  },[thumbnail])
+
+return (
+
   <Container className="PageContent"> 
     <form>
       <MainTitle> Sobre <div id="infinity"></div> </MainTitle>
       <ContentBox className="me"> 
-        <div className="img">
+        <div 
+          className="img" 
+          id="thumbnail" 
+          style={{ backgroundImage: `url(${preview})` }}
+          className={thumbnail ? 'img hasThumbnail' : 'img'}>
+            
           <div className="upload">
-            <input type="file"/>
+            <input type="file" onChange={e => setThumbnail(e.target.files[0])}/>
             <MdCameraAlt size={28}/>
           </div>
         </div>  
@@ -28,3 +45,6 @@ export default () =>
       </ContentBox>
     </form>
   </Container>
+
+)
+}
