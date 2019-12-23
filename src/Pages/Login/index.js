@@ -23,6 +23,7 @@ export default ({ history }) => {
       history.push('/pages/dashboard')
     } catch (error) {
       console.log('Error:', error)
+      alert("Wrong data")
     }
     
   }
