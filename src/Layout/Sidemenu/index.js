@@ -11,6 +11,7 @@ export default () => {
     { name: 'Início', active: true },
     { name: 'Serviços', active: false },
     { name: 'Clientes', active: false },
+    { name: 'Trabalhos', active: false },
     { name: 'Mensagens', active: false },
     { name: 'Perfil', active: false }
   ])
