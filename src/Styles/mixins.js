@@ -1,5 +1,5 @@
 import { device } from './device'
-import { darkGray, tertiaryColor, primaryColor } from './variables' 
+import { darkGray, tertiaryColor, primaryColor, primaryColor1 } from './variables' 
 
 // Repetead styles stay here
 export const centerContent = `
@@ -34,7 +34,7 @@ export const PageContainer = `
   border-radius: 2rem;
   padding: 2rem;
   box-shadow: 0 0 1rem rgba(0,0,0,.5);
-  background: ${primaryColor};
+  background: ${primaryColor1};
 
   /* width */
   &::-webkit-scrollbar {

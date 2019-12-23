@@ -1,4 +1,5 @@
 export const primaryColor = `#070708`
+export const primaryColor1 = `#0E0F10` 
 export const secondaryColor = `#212529`
 export const tertiaryColor = `#25ca7f`
 export const backgrounColor = `#0e0f10`
