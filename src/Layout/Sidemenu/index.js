@@ -9,11 +9,11 @@ export default () => {
   const [display, setDisplay] = useState(false)
   const [links, setLinks] = useState([
     { to: '/pages/dashboard', name: 'Início', active: true },
-    { to: '/pages/services',name: 'Serviços', active: false },
-    { to: '/pages/clientes',name: 'Clientes', active: false },
-    { to: '/pages/trabalho',name: 'Trabalhos', active: false },
-    { to: '/pages/messages',name: 'Mensagens', active: false },
-    { to: '/pages/profile',name: 'Perfil', active: false }
+    { to: '/pages/services', name: 'Serviços', active: false },
+    { to: '/pages/clientes', name: 'Clientes', active: false },
+    { to: '/pages/trabalho', name: 'Trabalhos', active: false },
+    { to: '/pages/messages', name: 'Mensagens', active: false },
+    { to: '/pages/profile', name: 'Perfil', active: false }
   ]) 
 
   // Change the active link
