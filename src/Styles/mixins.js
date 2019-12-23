@@ -33,8 +33,7 @@ export const PageContainer = `
   ${smoothTransition}; 
   border-radius: 2rem;
   padding: 2rem;
-  box-shadow: 0 0 1rem rgba(0,0,0,.5);
-  background: ${primaryColor1};
+  box-shadow: 0 0 1rem ${primaryColor}}; 
 
   /* width */
   &::-webkit-scrollbar {
