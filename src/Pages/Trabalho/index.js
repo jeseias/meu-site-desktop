@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Container } from './styles'
 
-export default () =>
-  <Container>
-    <h1>Trabalhos page</h1>
+export default () => 
+  <Container className="PageContent">
+    <h1>Trabalho page</h1>
   </Container>

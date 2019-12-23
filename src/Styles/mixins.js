@@ -1,5 +1,5 @@
 import { device } from './device'
-import { darkGray, tertiaryColor, primaryColor, primaryColor1 } from './variables' 
+import { darkGray, tertiaryColor, primaryColor, primaryColor1, secondaryColor } from './variables' 
 
 // Repetead styles stay here
 export const centerContent = `
@@ -28,12 +28,13 @@ export const PageContainer = `
   top: 100px;
   right: 24px;
   height: calc(100vh - 120px);
-  color: #fff; 
+  color: #000; 
   width: 81.2vw; 
   ${smoothTransition}; 
   border-radius: 2rem;
   padding: 2rem;
   box-shadow: 0 0 1rem ${primaryColor}}; 
+  background: ${secondaryColor};
 
   /* width */
   &::-webkit-scrollbar {

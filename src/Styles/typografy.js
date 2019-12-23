@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { tertiaryColor } from './variables'
+import { tertiaryColor, backgrounColor } from './variables'
 
 export const MainTitle = styled.h1`
   color: #fff;

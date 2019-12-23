@@ -11,7 +11,7 @@ export default () => {
     { to: '/pages/dashboard', name: 'Início', active: true },
     { to: '/pages/services',name: 'Serviços', active: false },
     { to: '/pages/clientes',name: 'Clientes', active: false },
-    { to: '/pages/trabalhos',name: 'Trabalhos', active: false },
+    { to: '/pages/trabalho',name: 'Trabalhos', active: false },
     { to: '/pages/messages',name: 'Mensagens', active: false },
     { to: '/pages/profile',name: 'Perfil', active: false }
   ]) 
