@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
-import { secondaryColor, backgrounColor, tertiaryColor } from '../../Styles/variables'
+import { secondaryColor, tertiaryColor } from '../../Styles/variables'
 import { smoothTransition } from '../../Styles/mixins'
 
 export const Container = styled.div`
-  width: 100%;
-  height: 100%; 
-  border: 2px solid #fff;
-  border-top: none;
+  width: 100%;   
+  background: #fff;
 
   header {
     background: #fff;
@@ -21,19 +19,23 @@ export const Container = styled.div`
       text-align: center;
       ${smoothTransition};
       overflow: visible;
+      background: ${secondaryColor};
+      color: #fff; 
 
       &.active {
-        background: ${secondaryColor};
-        border-bottom: 2px solid ${tertiaryColor};
-        border-left: 2px solid ${tertiaryColor};
-        border-right: 2px solid ${tertiaryColor}; 
-        color: ${tertiaryColor}; 
+        background: #fff;
+        color: ${tertiaryColor};  
+        font-weight: bold;  
+
+        &:hover {
+          background: #fff;
+          color: ${tertiaryColor}; 
+        }
       }
 
-      &:hover {
-        background: ${secondaryColor};
+      &:hover {  
         cursor: pointer;
-        color: #fff;
+        color: #fff; 
       }
     }
   }

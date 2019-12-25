@@ -2,16 +2,15 @@ import React from 'react';
 
 import { Container } from './styles';
 
-export default (props) => {
-  const menuItems = props.elements
+export default ({ elements, changeItems }) => { 
 
 return (
-  <Container items={menuItems.length}>
+  <Container items={elements.length}>
     <header>
-      {menuItems.map( item => 
-        <h1 className={item.active ? 'active' : ''}>{item.name}</h1>
+      {elements.map( item => 
+        <h1 key={item.id} className={item.active ? 'active' : ''} onClick={() => changeItems(item.name)}>{item.name}</h1>
       )}
-    </header>
+    </header> 
   </Container> 
 )
 }
