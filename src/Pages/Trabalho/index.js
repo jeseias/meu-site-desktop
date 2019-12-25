@@ -9,7 +9,7 @@ export default () => {
   const [showNovoTrabalho, setShowNovoTrabalho] = useState(false)
   const [tabItems, setItems] = useState([
     { name: 'Trabalhos', active: true, id: "trabalhos" },
-    { name: 'Novo Trabalho', active: false, id: "novotrabalho" } 
+    { name: 'Adicionar', active: false, id: "novotrabalho" } 
   ])  
 
   const changeItems = ({name,id}) => {
@@ -38,9 +38,11 @@ return (
         <h1> Component One</h1>
       </Trabalhos>
       <NovoTrabalhos show={showNovoTrabalho}>
-        <h2> Component two</h2>
+        <form>
+          
+        </form>
       </NovoTrabalhos> 
     </main>
   </Container>
 )
-}
+} 

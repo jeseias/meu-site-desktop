@@ -4,6 +4,8 @@ import api from '../../services/api'
 
 import { MdCameraAlt } from 'react-icons/md'
 
+import ImageInput from '../../components/ImageInput'
+
 import { MainTitle } from '../../Styles/typografy'
 import { ContentBox, FormInput, FormArea, AwesomeBTN  } from '../../Styles/components'
 import { Container } from './styles'
@@ -41,7 +43,8 @@ return (
     <form onSubmit={handleSubmit}>
       <MainTitle> Sobre <div id="infinity"></div> </MainTitle>
       <ContentBox className="me"> 
-        <div 
+        <ImageInput cl="img" bgImg={preview} thumbnail={thumbnail} setThumbnail={setThumbnail}/>
+        {/* <div 
           className="img" 
           id="thumbnail" 
           style={{ backgroundImage: `url(${preview})` }}
@@ -51,7 +54,7 @@ return (
             <input type="file" onChange={e => setThumbnail(e.target.files[0])}/>
             <MdCameraAlt size={28}/>
           </div>
-        </div>  
+        </div> */}  
         <div className="details">
           <h3>Jeseías Domingos</h3>
           <p className="location"> 
