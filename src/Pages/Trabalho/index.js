@@ -2,11 +2,7 @@ import React, { useState } from 'react'
 
 import TabSwitch from '../../components/TabSwitch'
 
-import { Container, NovoTrabalhos, Trabalhos } from './styles'
-
-
-const ComponentA = () => <h2 title="Component A">This is components A</h2>
-const ComponentB = () => <h2 title="Component B">This is components B</h2> 
+import { Container, NovoTrabalhos, Trabalhos } from './styles' 
 
 export default () => {
   const [tabItems, setItems] = useState([
@@ -27,7 +23,7 @@ export default () => {
 
 return ( 
   <Container className="PageContent">
-    <TabSwitch elements={tabItems} changeItems={changeItems} component={ComponentA} /> 
+    <TabSwitch elements={tabItems} changeItems={changeItems} /> 
     <main className="trabalhosMain"> 
       <Trabalhos id="trabalhos">
         <h1> Component One</h1>
