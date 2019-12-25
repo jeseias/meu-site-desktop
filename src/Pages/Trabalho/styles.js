@@ -10,14 +10,23 @@ export const Container = styled.div`
   main {
     width: 100%;
     background: #fff;
-    padding: 1rem;
+    position: relative;
+
+    > * {
+      padding: 1rem;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 `
 
 export const Trabalhos = styled.section`
-
+  display: ${props => `${props.show ? 'block' : 'none'}`};
 `
 
 export const NovoTrabalhos = styled.section`
-  
+  display: ${props => `${props.show ? 'block' : 'none'}`};
 `

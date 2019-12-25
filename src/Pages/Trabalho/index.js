@@ -5,14 +5,23 @@ import TabSwitch from '../../components/TabSwitch'
 import { Container, NovoTrabalhos, Trabalhos } from './styles' 
 
 export default () => {
+  const [showTrabalho, setShowTrabalho] = useState(true)
+  const [showNovoTrabalho, setShowNovoTrabalho] = useState(false)
   const [tabItems, setItems] = useState([
     { name: 'Trabalhos', active: true, id: "trabalhos" },
     { name: 'Novo Trabalho', active: false, id: "novotrabalho" } 
   ])  
 
-  const changeItems = name => {
+  const changeItems = ({name,id}) => {
     const newItems = tabItems.map( item => {
-      if( item.name === name) {  
+      if( item.name === name) { 
+        if (id === 'trabalhos')  {
+          setShowTrabalho(true)
+          setShowNovoTrabalho(false)
+        } else {
+          setShowTrabalho(false)
+          setShowNovoTrabalho(true)
+        }
         return {...item, active: true};
       } else { 
         return {...item, active: false}
@@ -25,10 +34,10 @@ return (
   <Container className="PageContent">
     <TabSwitch elements={tabItems} changeItems={changeItems} /> 
     <main className="trabalhosMain"> 
-      <Trabalhos id="trabalhos">
+      <Trabalhos show={showTrabalho}>
         <h1> Component One</h1>
       </Trabalhos>
-      <NovoTrabalhos id="novotrabalho">
+      <NovoTrabalhos show={showNovoTrabalho}>
         <h2> Component two</h2>
       </NovoTrabalhos> 
     </main>

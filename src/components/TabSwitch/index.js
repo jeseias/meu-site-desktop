@@ -8,7 +8,7 @@ return (
   <Container items={elements.length}>
     <header>
       {elements.map( item => 
-        <h1 key={item.id} className={item.active ? 'active' : ''} onClick={() => changeItems(item.name)}>{item.name}</h1>
+        <h1 key={item.id} className={item.active ? 'active' : ''} onClick={() => changeItems(item)}>{item.name}</h1>
       )}
     </header> 
   </Container> 
