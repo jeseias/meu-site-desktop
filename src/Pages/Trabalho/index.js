@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 
 import api from '../../services/api' 
 
@@ -6,7 +6,7 @@ import TabSwitch from '../../components/TabSwitch'
 import ImageInput from '../../components/ImageInput'
 
 import {  FormInput, AwesomeBTN  } from '../../Styles/components'
-import { Container, NovoTrabalhos, Trabalhos } from './styles' 
+import { Container, NovoTrabalhos, Trabalhos, TrabalhosBox, WorkBox } from './styles' 
 
 export default () => {
   const [showTrabalho, setShowTrabalho] = useState(true)
@@ -14,9 +14,12 @@ export default () => {
   const [tabItems, setItems] = useState([
     { name: 'Trabalhos', active: true, id: "trabalhos" },
     { name: 'Adicionar', active: false, id: "novotrabalho" } 
-  ])  
+  ]) 
+  
+  const [trabalhos, setTrabalhos] = useState(false)
 
   const [thumbnail, setThumbnail] = useState(null)
+  const [img, setImg] = useState(null)
   const [name, setName] = useState('') 
   const [link, setLink] = useState('')
   const [type, setType] = useState('')
@@ -25,13 +28,21 @@ export default () => {
     return thumbnail ? URL.createObjectURL(thumbnail) : null 
   },[thumbnail])
 
+  useEffect(() => {
+    async function loadWorks() { 
+      const res = await api.get('/works') 
+      setTrabalhos(res.data) 
+    }
+    loadWorks()
+  }, [])
+
   async function handleSubmit(e) {
     e.preventDefault()
 
     try { 
       const data = new FormData() 
   
-      data.append('thumbnail', thumbnail)
+      data.append('thumbnail', img)
       data.append('name', name)
       data.append('link', link)
       data.append('type', type) 
@@ -62,16 +73,31 @@ export default () => {
     setItems(newItems)
   }
 
+  const setImage = img => {
+    setImg(img)
+  }
+
 return ( 
   <Container className="PageContent">
     <TabSwitch elements={tabItems} changeItems={changeItems} /> 
     <main className="trabalhosMain"> 
       <Trabalhos show={showTrabalho}>
-        <h1> Component One</h1>
+        {trabalhos ? 
+        <TrabalhosBox>
+          {trabalhos.map( work =>
+            <WorkBox>
+              { console.log(work) }
+            </WorkBox>
+          )}
+        </TrabalhosBox> :
+        <div className="noTrabalho">
+          <h1> Não tem trabalho !</h1>
+        </div>  
+      }
       </Trabalhos>
       <NovoTrabalhos show={showNovoTrabalho}>
         <form onSubmit={handleSubmit}>  
-          <ImageInput cl="img" bgImg={preview} thumbnail={thumbnail} setThumbnail={setThumbnail}/>
+          <ImageInput cl="img" bgImg={preview} thumbnail={thumbnail} setThumbnail={setThumbnail} setImage={setImage} />
           <FormInput placeholder="Nome do trabalho" type="text" value={name} onChange={e => setName(e.target.value)}/>
           <FormInput placeholder="Tipo de projecto" type="text" value={type} onChange={e => setType(e.target.value)}/>
           <FormInput placeholder="Link do site" type="text" value={link} onChange={e => setLink(e.target.value)}/>

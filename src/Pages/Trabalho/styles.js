@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { PageContainer, CenterElement, SimpleShadow } from '../../Styles/mixins'
+import { PageContainer, CenterElement, SimpleShadow, centerContent } from '../../Styles/mixins'
 import { secondaryColor, tertiaryColor } from '../../Styles/variables'
 
 export const Container = styled.div`
@@ -49,8 +49,24 @@ export const Container = styled.div`
 
 export const Trabalhos = styled.section`
   display: ${props => `${props.show ? 'block' : 'none'}`};
+
+  .noTrabalho {
+    ${centerContent};
+    height: 100%; 
+    color: ${secondaryColor}; 
+  }
 `
 
 export const NovoTrabalhos = styled.section`
   display: ${props => `${props.show ? 'block' : 'none'}`};
+`
+
+export const TrabalhosBox = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1rem;
+`
+
+export const WorkBox = styled.div`
+  
 `
