@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { PageContainer, centerContent, smoothTransition } from '../../Styles/mixins' 
+import { PageContainer } from '../../Styles/mixins' 
 
 export const Container = styled.div`
   ${PageContainer};

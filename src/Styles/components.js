@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { device } from './device'
 
-import { primaryColor, tertiaryColor, backgrounColor, lightGray } from './variables'
+import { primaryColor, tertiaryColor, backgrounColor, lightGray, secondaryColor } from './variables'
 import { smoothTransition, centerContent, FormElements } from './mixins'
 
 export const ContentBox = styled.div`
@@ -73,7 +73,7 @@ export const Tags = styled.div`
   }
 `
 
-export const AwesomeBTN = styled.button`
+export const AwesomeBTN = styled.button` 
   background: none;
   color: ${tertiaryColor}; 
   border: none;
@@ -87,6 +87,19 @@ export const AwesomeBTN = styled.button`
     border-bottom: .3rem solid transparent;
     cursor: pointer;
     background: ${backgrounColor};
+  }
+
+  &.btn1 { 
+    height: 50px;
+    ${centerContent};
+    line-height: 20;
+    font-size: 1.5rem;
+
+    &:hover {
+      background: ${tertiaryColor};
+      color: ${secondaryColor};
+      color: #fff;
+    }
   }
 
   @media ${device.mobileL} { 

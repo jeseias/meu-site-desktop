@@ -14,6 +14,8 @@ export const CenterElement = `
   margin: 1rem auto;
 `
 
+export const SimpleShadow = `box-shadow: 0 0 .2rem rgba(0,0,0,.5)`
+
 export const smoothTransition =  `transition: All ease-in-out .3s`
 
 export const positionAbsoluteCenter = (t, l) => `

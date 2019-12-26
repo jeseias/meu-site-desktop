@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 
 import TabSwitch from '../../components/TabSwitch'
+import ImageInput from '../../components/ImageInput'
 
+import {  FormInput, AwesomeBTN  } from '../../Styles/components'
 import { Container, NovoTrabalhos, Trabalhos } from './styles' 
 
 export default () => {
@@ -11,6 +13,15 @@ export default () => {
     { name: 'Trabalhos', active: true, id: "trabalhos" },
     { name: 'Adicionar', active: false, id: "novotrabalho" } 
   ])  
+
+  const [thumbnail, setThumbnail] = useState(null)
+  const [name, setName] = useState('') 
+  const [link, setLink] = useState('')
+  const [type, setType] = useState('')
+
+  const preview = useMemo(() => {
+    return thumbnail ? URL.createObjectURL(thumbnail) : null 
+  },[thumbnail])
 
   const changeItems = ({name,id}) => {
     const newItems = tabItems.map( item => {
@@ -38,8 +49,12 @@ return (
         <h1> Component One</h1>
       </Trabalhos>
       <NovoTrabalhos show={showNovoTrabalho}>
-        <form>
-          
+        <form>  
+          <ImageInput cl="img" bgImg={preview} thumbnail={thumbnail} setThumbnail={setThumbnail}/>
+          <FormInput placeholder="Nome do trabalho" type="text" value={name} onChange={e => setName(e.target.value)}/>
+          <FormInput placeholder="Tipo de projecto" type="text" value={type} onChange={e => setType(e.target.value)}/>
+          <FormInput placeholder="Link do site" type="text" value={link} onChange={e => setLink(e.target.value)}/>
+          <AwesomeBTN type="submit" className="btn1"> Adicionar </AwesomeBTN>
         </form>
       </NovoTrabalhos> 
     </main>

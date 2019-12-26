@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import { PageContainer } from '../../Styles/mixins'
+import { PageContainer, CenterElement, SimpleShadow } from '../../Styles/mixins'
+import { secondaryColor, tertiaryColor } from '../../Styles/variables'
 
 export const Container = styled.div`
   ${PageContainer};
@@ -19,6 +20,29 @@ export const Container = styled.div`
       position: absolute;
       top: 0;
       left: 0;
+    }
+
+    form {
+      height: 100%;
+      width: 70%;
+      display: block;
+      margin: 0 auto; 
+      color: ${secondaryColor};
+
+      > * {
+        ${CenterElement}; 
+        width: 450px;
+      }
+
+      input {
+        color: ${secondaryColor};
+      }
+
+      .img {
+        height: 300px;
+        border-radius: 0;
+        ${SimpleShadow}; 
+      }
     }
   }
 `

@@ -1,8 +1,6 @@
 import React, { useState, useMemo } from 'react' 
 
-import api from '../../services/api'
-
-import { MdCameraAlt } from 'react-icons/md'
+import api from '../../services/api' 
 
 import ImageInput from '../../components/ImageInput'
 
@@ -43,18 +41,7 @@ return (
     <form onSubmit={handleSubmit}>
       <MainTitle> Sobre <div id="infinity"></div> </MainTitle>
       <ContentBox className="me"> 
-        <ImageInput cl="img" bgImg={preview} thumbnail={thumbnail} setThumbnail={setThumbnail}/>
-        {/* <div 
-          className="img" 
-          id="thumbnail" 
-          style={{ backgroundImage: `url(${preview})` }}
-          className={thumbnail ? 'img hasThumbnail' : 'img'}>
-            
-          <div className="upload">
-            <input type="file" onChange={e => setThumbnail(e.target.files[0])}/>
-            <MdCameraAlt size={28}/>
-          </div>
-        </div> */}  
+        <ImageInput cl="img" bgImg={preview} thumbnail={thumbnail} setThumbnail={setThumbnail}/> 
         <div className="details">
           <h3>Jeseías Domingos</h3>
           <p className="location"> 
