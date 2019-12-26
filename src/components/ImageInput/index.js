@@ -15,7 +15,7 @@ export default  ({ cl, bgImg, thumbnail, setThumbnail, setImage }) =>
       <input 
         type="file" 
         onChange={e => {
-          setImage(e.target.files[0].name)
+          setImage(e.target.files[0])
           setThumbnail(e.target.files[0])
       }}/>
       <MdCameraAlt size={28}/>

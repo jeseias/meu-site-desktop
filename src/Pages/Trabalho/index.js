@@ -4,9 +4,10 @@ import api from '../../services/api'
 
 import TabSwitch from '../../components/TabSwitch'
 import ImageInput from '../../components/ImageInput'
+import WorkBox from '../../components/WorkBox'
 
 import {  FormInput, AwesomeBTN  } from '../../Styles/components'
-import { Container, NovoTrabalhos, Trabalhos, TrabalhosBox, WorkBox } from './styles' 
+import { Container, NovoTrabalhos, Trabalhos, TrabalhosBox } from './styles' 
 
 export default () => {
   const [showTrabalho, setShowTrabalho] = useState(true)
@@ -19,14 +20,14 @@ export default () => {
   const [trabalhos, setTrabalhos] = useState(false)
 
   const [thumbnail, setThumbnail] = useState(null)
-  const [img, setImg] = useState(null)
+  const [img, setImg] = useState(null) 
   const [name, setName] = useState('') 
   const [link, setLink] = useState('')
   const [type, setType] = useState('')
 
   const preview = useMemo(() => {
     return thumbnail ? URL.createObjectURL(thumbnail) : null 
-  },[thumbnail])
+  },[thumbnail]) 
 
   useEffect(() => {
     async function loadWorks() { 
@@ -73,8 +74,9 @@ export default () => {
     setItems(newItems)
   }
 
-  const setImage = img => {
-    setImg(img)
+  const setImage = image => { 
+    setThumbnail(image)
+    setImg(image.name) 
   }
 
 return ( 
@@ -82,18 +84,14 @@ return (
     <TabSwitch elements={tabItems} changeItems={changeItems} /> 
     <main className="trabalhosMain"> 
       <Trabalhos show={showTrabalho}>
-        {trabalhos ? 
-        <TrabalhosBox>
-          {trabalhos.map( work =>
-            <WorkBox>
-              { console.log(work) }
-            </WorkBox>
-          )}
-        </TrabalhosBox> :
-        <div className="noTrabalho">
-          <h1> Não tem trabalho !</h1>
-        </div>  
-      }
+        {/* {trabalhos ? 
+          <TrabalhosBox>
+            { trabalhos.map(async work => <WorkBox data={work}/> ) }
+          </TrabalhosBox> :
+          <div className="noTrabalho">
+            <h1> Não tem trabalho !</h1>
+          </div>  
+        } */}
       </Trabalhos>
       <NovoTrabalhos show={showNovoTrabalho}>
         <form onSubmit={handleSubmit}>  
