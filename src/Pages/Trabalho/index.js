@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from 'react'
 
+import api from '../../services/api' 
+
 import TabSwitch from '../../components/TabSwitch'
 import ImageInput from '../../components/ImageInput'
 
@@ -22,6 +24,25 @@ export default () => {
   const preview = useMemo(() => {
     return thumbnail ? URL.createObjectURL(thumbnail) : null 
   },[thumbnail])
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+
+    try { 
+      const data = new FormData() 
+  
+      data.append('thumbnail', thumbnail)
+      data.append('name', name)
+      data.append('link', link)
+      data.append('type', type) 
+  
+      await api.post('/work', data) 
+      alert(`O trabalho ${name} foi adicionado com succeso`)
+    } catch (error) {
+      alert("Occorreu um erro ao adicionar, tenta de novo")
+    }
+
+  }
 
   const changeItems = ({name,id}) => {
     const newItems = tabItems.map( item => {
@@ -49,7 +70,7 @@ return (
         <h1> Component One</h1>
       </Trabalhos>
       <NovoTrabalhos show={showNovoTrabalho}>
-        <form>  
+        <form onSubmit={handleSubmit}>  
           <ImageInput cl="img" bgImg={preview} thumbnail={thumbnail} setThumbnail={setThumbnail}/>
           <FormInput placeholder="Nome do trabalho" type="text" value={name} onChange={e => setName(e.target.value)}/>
           <FormInput placeholder="Tipo de projecto" type="text" value={type} onChange={e => setType(e.target.value)}/>
