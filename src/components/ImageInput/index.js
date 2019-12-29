@@ -14,10 +14,7 @@ export default  ({ cl, bgImg, thumbnail, setThumbnail, setImage }) =>
     <div className="upload">
       <input 
         type="file" 
-        onChange={e => {
-          setImage(e.target.files[0].name)
-          setThumbnail(e.target.files[0])
-      }}/>
+        onChange={e =>  setThumbnail(e.target.files[0]) }/>
       <MdCameraAlt size={28}/>
     </div>
   </Container>
