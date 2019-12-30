@@ -227,3 +227,7 @@ export const FormArea = styled.textarea`
   min-height: 200px;
   margin-top: 2rem;
 `
+
+export const TabContentContainer = styled.div`
+  display: ${props => `${props.show ? 'block' : 'none'}`};
+`
