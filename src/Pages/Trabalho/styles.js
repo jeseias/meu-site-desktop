@@ -61,12 +61,9 @@ export const NovoTrabalhos = styled.section`
   display: ${props => `${props.show ? 'block' : 'none'}`};
 `
 
-export const TrabalhosBox = styled.div`
+export const TrabalhosBox = styled.div` 
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 230px);
   grid-gap: 1rem;
-`
-
-export const WorkBox = styled.div`
-  
-`
+` 

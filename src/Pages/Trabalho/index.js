@@ -4,9 +4,10 @@ import api from '../../services/api'
 
 import TabSwitch from '../../components/TabSwitch'
 import ImageInput from '../../components/ImageInput'
+import WorkBox from '../../components/WorkBox'
 
 import {  FormInput, AwesomeBTN  } from '../../Styles/components'
-import { Container, NovoTrabalhos, Trabalhos, TrabalhosBox, WorkBox } from './styles' 
+import { Container, NovoTrabalhos, Trabalhos, TrabalhosBox } from './styles' 
 
 export default () => {
   const [showTrabalho, setShowTrabalho] = useState(true)
@@ -79,11 +80,7 @@ return (
       <Trabalhos show={showTrabalho}>
         {trabalhos ? 
         <TrabalhosBox>
-          {trabalhos.map( work =>
-            <WorkBox>
-              { console.log(work) }
-            </WorkBox>
-          )}
+          {trabalhos.map( work => <WorkBox key={work.id} work={work} /> )}
         </TrabalhosBox> :
         <div className="noTrabalho">
           <h1> Não tem trabalho !</h1>
