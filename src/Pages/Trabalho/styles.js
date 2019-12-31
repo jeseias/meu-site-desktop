@@ -64,6 +64,8 @@ export const NovoTrabalhos = styled.section`
 export const TrabalhosBox = styled.div` 
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 230px);
-  grid-gap: 1rem;
+  grid-template-rows: repeat( 8, 240px);
+  grid-gap: 0rem;
+  overflow-y: scroll;
+  height: 740px;
 ` 

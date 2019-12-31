@@ -230,4 +230,10 @@ export const FormArea = styled.textarea`
 
 export const TabContentContainer = styled.div`
   display: ${props => `${props.show ? 'block' : 'none'}`};
+
+  > * {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+  }
 `
