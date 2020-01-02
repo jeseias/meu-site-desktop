@@ -9,11 +9,15 @@ export const Container = styled.div`
   .messagebox {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: ${props => `repeat(${props.total/3}, 150px)`}; 
+    grid-template-rows: ${props => `repeat(${ Math.round((props.total/3) + 1) }, 150px)`}; 
+    ${props => console.log(props.total)};
     grid-gap: 1rem;
-    padding: 1rem 0;
-    width: 100%;
-    height: 100%;
+    overflow-y: scroll;
+    height: 720px;  
+    padding: 1rem;
+    width: 100%; 
+    position: relative;
+    top: -60px;
   }
 `;
 
