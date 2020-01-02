@@ -18,8 +18,8 @@ export default () => {
       setMessages(data.data)
     }
     loadMessages()
-  }, [])
-
+  }, [messages]) 
+  
   const handleMessage = async el => {
     setDisplay(!display)  
     const msg = await api.get(`/msg/${el._id}`) 

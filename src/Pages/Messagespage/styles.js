@@ -28,11 +28,12 @@ export const MessageContainer = styled.div`
   ${smoothTransition};
   padding: 1.5rem;
   display: grid;
+  grid-template-columns: auto auto auto 20%;
   grid-template-areas: 
     "name name name name"
     "msg  msg msg msg" 
     "msg  msg msg msg" 
-    ". . date date" ; 
+    ". . . date" ; 
 
   .name {
     grid-area: name;
