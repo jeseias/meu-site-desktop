@@ -22,10 +22,10 @@ export const Container = styled.div`
     overflow: visible;
     color: ${backgrounColor};
 
-    .close {
+    .close, .trash {
       position: absolute;
       top: -33px;
-      right: 4px;
+      right: 28px;
       color: #fff;
       ${smoothTransition};
 
@@ -33,6 +33,11 @@ export const Container = styled.div`
         cursor: pointer;
         color: ${tertiaryColor};
       }
+    }
+
+    .trash { 
+      right: 4px; 
+      top: -28px;
     }
 
     h1 {

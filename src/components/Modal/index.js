@@ -3,6 +3,7 @@ import React from 'react';
 import api from '../../services/api'
 
 import { MdClose } from 'react-icons/md'
+import { FaTrashAlt } from 'react-icons/fa'
 
 import { SecondTitle } from '../../Styles/typografy'
 import { Container } from './styles';
@@ -11,7 +12,7 @@ export default ({ info: { name, msg, _id }, info, show, toggleModal}) => {
 
   const handleClose = async id => {
     toggleModal() 
-    await api.patch(`/msg/${id}`, info) 
+    if (!info.read)  await api.patch(`/msg/${id}`, info) 
   } 
 
   return ( 
@@ -22,6 +23,7 @@ export default ({ info: { name, msg, _id }, info, show, toggleModal}) => {
         <p className="text">
           {msg} 
         </p>
+        <FaTrashAlt className='trash' size={20} />
       </main>
     </Container>
   )
