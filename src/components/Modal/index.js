@@ -11,7 +11,7 @@ export default ({ info: { name, msg }, show, toggleModal}) =>
       <MdClose className="close" size={30} onClick={() => toggleModal()} /> 
       <SecondTitle>{ name }</SecondTitle> 
       <p className="text">
-        {msg}
+        {msg} 
       </p>
     </main>
   </Container>

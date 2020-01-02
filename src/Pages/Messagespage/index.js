@@ -20,10 +20,10 @@ export default () => {
     loadMessages()
   }, [])
 
-  const handleMessage = async id => {
-    setDisplay(!display) 
-    const data = await api.get(`/msg/${id}`) 
-    setModalInfo(data.data)
+  const handleMessage = async el => {
+    setDisplay(!display)  
+    const msg = await api.get(`/msg/${el._id}`) 
+    setModalInfo(msg.data)
   }
 
   const toggleModal = () => setDisplay(!display)
@@ -35,9 +35,11 @@ export default () => {
       <div className="messagebox">
         {
           messages.map( msg => 
-            <MessageContainer key={msg._id}> 
+            <MessageContainer key={msg._id} onClick={() => handleMessage(msg)}> 
               <h2 className="name">{msg.name}</h2>
-              <div className="date" onClick={() => handleMessage(msg._id)}>ler Mais</div>
+              <div className={msg.read ? 'date' : 'date read'} onClick={() => handleMessage(msg)}>
+                { msg.read ? 'Já lido' : 'Não Lido' }
+              </div>
               <div className="msg">
                 {msg.msg.split('').map( (l, i) => {
                     const saying = []

@@ -12,7 +12,7 @@ export const Container = styled.div`
   height: 100%;
   background: rgba(0,0,0,.5);
   overflow: hidden; 
-  z-index: 100%;
+  z-index: 100;
 
   main {
     ${positionAbsoluteCenter(50,57)};

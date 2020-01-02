@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { PageContainer, smoothTransition } from '../../Styles/mixins'
-import { backgrounColor, tertiaryColor, secondaryColor, primaryColor } from '../../Styles/variables'
+import { backgrounColor, tertiaryColor, secondaryColor, transparentTertiaryColor } from '../../Styles/variables'
 
 export const Container = styled.div`
   ${PageContainer};
@@ -9,8 +9,7 @@ export const Container = styled.div`
   .messagebox {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: ${props => `repeat(${ Math.round((props.total/3) + 1) }, 150px)`}; 
-    ${props => console.log(props.total)};
+    grid-template-rows: ${props => `repeat(${ Math.round((props.total/3) + 1) }, 150px)`};  
     grid-gap: 1rem;
     overflow-y: scroll;
     height: 720px;  
@@ -33,7 +32,7 @@ export const MessageContainer = styled.div`
     "name name name name"
     "msg  msg msg msg" 
     "msg  msg msg msg" 
-    ". . date date" ;
+    ". . date date" ; 
 
   .name {
     grid-area: name;
@@ -58,6 +57,10 @@ export const MessageContainer = styled.div`
 
     &:hover {
       background: ${tertiaryColor}; 
+    } 
+
+    &.read {
+      box-shadow: 0 0 .2rem ${tertiaryColor};
     }
   }
 
