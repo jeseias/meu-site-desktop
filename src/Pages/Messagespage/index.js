@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import api from '../../services/api'
 
-import Modal from '../../components/Modal'
+import Modal from '../../components/ModalMessage'
 
 import { MainTitle } from '../../Styles/typografy' 
 import { Container, MessageContainer } from './styles';
