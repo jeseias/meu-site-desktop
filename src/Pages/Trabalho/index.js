@@ -18,8 +18,7 @@ export default () => {
   ]) 
   
   const [trabalhos, setTrabalhos] = useState(false) 
-  
-  const [img, setImg] = useState(null) 
+ 
   const [thumbnail, setThumbnail] = useState(null) 
   const [name, setName] = useState('') 
   const [link, setLink] = useState('')
@@ -35,7 +34,7 @@ export default () => {
       setTrabalhos(res.data) 
     }
     loadWorks()
-  }, [])
+  }, [trabalhos])
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -72,35 +71,24 @@ export default () => {
       }
     }) 
     setItems(newItems)
-  }
-
-  const setImage = image => { 
-    setThumbnail(image)
-    setImg(image.name) 
-  }
-  
+  } 
 
   return ( 
     <Container className="PageContent">
       <TabSwitch elements={tabItems} changeItems={changeItems} /> 
       <main className="trabalhosMain"> 
-        <Trabalhos show={showTrabalho}>
-          {/* {trabalhos ? 
-            <TrabalhosBox>
-              { trabalhos.map(async work => <WorkBox data={work}/> ) }
-            </TrabalhosBox> :
-            <div className="noTrabalho">
-              <h1> Não tem trabalho !</h1>
-            </div>  
-          } */}
-          {trabalhos ? 
-          <TrabalhosBox>
-            {trabalhos.map( work => <WorkBox key={work.id} work={work} /> )}
-          </TrabalhosBox> :
-          <div className="noTrabalho">
-            <h1> Não tem trabalho !</h1>
-          </div>  
-        }
+        <Trabalhos show={showTrabalho}> 
+          {
+            trabalhos 
+              ? 
+                <TrabalhosBox>
+                  {trabalhos.map( work => <WorkBox key={work.id} work={work} /> )}
+                </TrabalhosBox> 
+              :
+                <div className="noTrabalho">
+                  <h1> Não tem trabalho !</h1>
+                </div>  
+          }
         </Trabalhos>
         <NovoTrabalhos show={showNovoTrabalho}>
           <form onSubmit={handleSubmit}>  

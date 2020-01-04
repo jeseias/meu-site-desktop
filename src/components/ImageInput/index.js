@@ -4,7 +4,7 @@ import { MdCameraAlt } from 'react-icons/md'
 
 import { Container } from './styles';
 
-export default  ({ cl, bgImg, thumbnail, setThumbnail, setImage }) =>   
+export default  ({ cl, bgImg, thumbnail, setThumbnail }) =>   
   <Container 
     className={`${cl} img`} 
     id="thumbnail"
@@ -13,12 +13,9 @@ export default  ({ cl, bgImg, thumbnail, setThumbnail, setImage }) =>
   > 
     <div className="upload">
       <input 
-        type="file" 
-        onChange={e => {
-          setImage(e.target.files[0])
-          setThumbnail(e.target.files[0])
-      }}/>
-        onChange={e =>  setThumbnail(e.target.files[0]) }/>
+        type="file"  
+        onChange={e =>  setThumbnail(e.target.files[0]) }
+      />
       <MdCameraAlt size={28}/>
     </div>
   </Container>
