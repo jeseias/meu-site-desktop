@@ -82,7 +82,9 @@ export default () => {
             trabalhos 
               ? 
                 <TrabalhosBox>
-                  {trabalhos.map( work => <WorkBox key={work.id} work={work} /> )}
+                  {
+                    trabalhos.map( work => <WorkBox key={work.id} work={work} /> )
+                  }
                 </TrabalhosBox> 
               :
                 <div className="noTrabalho">

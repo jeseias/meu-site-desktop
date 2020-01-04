@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { PageContainer, CenterElement, SimpleShadow, centerContent } from '../../Styles/mixins'
-import { secondaryColor, tertiaryColor } from '../../Styles/variables'
+import { secondaryColor } from '../../Styles/variables'
 
 export const Container = styled.div`
   ${PageContainer};

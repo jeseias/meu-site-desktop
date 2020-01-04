@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { centerContent, smoothTransition } from '../../Styles/mixins'
+import { centerContent, smoothTransition, positionAbsoluteCenter } from '../../Styles/mixins'
 import { tertiaryColor } from '../../Styles/variables'
 
 export const Container = styled.div` 
@@ -10,15 +10,6 @@ export const Container = styled.div`
   ${centerContent};
   position: relative;
   overflow: hidden;
-
-  h2 {
-    color: ${tertiaryColor};
-    position: relative;
-    top: 10px;
-    opacity: 0;
-    z-index: 10;
-    ${smoothTransition};
-  }
 
   &::after {
     display: block;
@@ -33,6 +24,25 @@ export const Container = styled.div`
     ${smoothTransition};
   }
 
+  h2, .icon, .delete {
+    color: ${tertiaryColor};
+    position: relative;
+    top: 10px;
+    opacity: 0;
+    z-index: 10;
+    ${smoothTransition};
+  } 
+
+  .icon, .delete {
+    left: 30%;
+    color: #fff;
+    top: 160px;
+  }
+
+  .delete {
+    left: -35%; 
+  } 
+
   &:hover {
     cursor: pointer;
 
@@ -40,9 +50,21 @@ export const Container = styled.div`
       background: rgba(0,0,0,.8);
     }
 
-    h2 {
+    h2, .icon , .delete{
       opacity: 1;
       top: 0;
+    } 
+
+    .icon, .delete {
+      top: 120px;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .delete {
+      top: 90px;
     }
   }
 `;
