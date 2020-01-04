@@ -13,8 +13,30 @@ export const CenterElement = `
   display: block;
   margin: 1rem auto;
 `
-
 export const SimpleShadow = `box-shadow: 0 0 .2rem rgba(0,0,0,.5)`
+
+export const FormStyles = ` 
+  width: 70%; 
+  display: block;
+  margin: 0 auto; 
+  color: ${secondaryColor};
+
+  > * {
+    ${CenterElement}; 
+    width: 450px;
+  }
+
+  input {
+    color: ${secondaryColor};
+  }
+
+  .img {
+    height: 300px;
+    border-radius: 0;
+    ${SimpleShadow}; 
+  }
+`
+
 
 export const smoothTransition =  `transition: All ease-in-out .3s`
 

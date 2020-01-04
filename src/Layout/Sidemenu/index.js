@@ -35,7 +35,7 @@ export default () => {
 
 
 return( 
-  <Container display={display}>
+  <Container show={display}>
     <header> 
       <FaBars size={26} onClick={() => handleHideMenu()}/>
     </header>

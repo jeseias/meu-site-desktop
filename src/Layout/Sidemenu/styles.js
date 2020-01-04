@@ -14,7 +14,7 @@ export const Container = styled.div`
   box-shadow: 0 0 1rem #000;
   ${smoothTransition};
 
-  ${ props => props.display ? 'left: -13.29%': ''};
+  ${ props => props.show ? 'left: -13.29%': ''};
 
   header {
     height: 80px; 

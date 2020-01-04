@@ -17,10 +17,10 @@ export default () => {
     { name: 'Adicionar', active: false, id: "novotrabalho" } 
   ]) 
   
-  const [trabalhos, setTrabalhos] = useState(false)
-
-  const [thumbnail, setThumbnail] = useState(null)
+  const [trabalhos, setTrabalhos] = useState(false) 
+  
   const [img, setImg] = useState(null) 
+  const [thumbnail, setThumbnail] = useState(null) 
   const [name, setName] = useState('') 
   const [link, setLink] = useState('')
   const [type, setType] = useState('')
@@ -41,9 +41,9 @@ export default () => {
     e.preventDefault()
 
     try { 
-      const data = new FormData() 
-  
-      data.append('thumbnail', img)
+      const data = new FormData()  
+       
+      data.append('thumbnail', thumbnail)
       data.append('name', name)
       data.append('link', link)
       data.append('type', type) 
@@ -78,31 +78,40 @@ export default () => {
     setThumbnail(image)
     setImg(image.name) 
   }
+  
 
-return ( 
-  <Container className="PageContent">
-    <TabSwitch elements={tabItems} changeItems={changeItems} /> 
-    <main className="trabalhosMain"> 
-      <Trabalhos show={showTrabalho}>
-        {/* {trabalhos ? 
+  return ( 
+    <Container className="PageContent">
+      <TabSwitch elements={tabItems} changeItems={changeItems} /> 
+      <main className="trabalhosMain"> 
+        <Trabalhos show={showTrabalho}>
+          {/* {trabalhos ? 
+            <TrabalhosBox>
+              { trabalhos.map(async work => <WorkBox data={work}/> ) }
+            </TrabalhosBox> :
+            <div className="noTrabalho">
+              <h1> Não tem trabalho !</h1>
+            </div>  
+          } */}
+          {trabalhos ? 
           <TrabalhosBox>
-            { trabalhos.map(async work => <WorkBox data={work}/> ) }
+            {trabalhos.map( work => <WorkBox key={work.id} work={work} /> )}
           </TrabalhosBox> :
           <div className="noTrabalho">
             <h1> Não tem trabalho !</h1>
           </div>  
-        } */}
-      </Trabalhos>
-      <NovoTrabalhos show={showNovoTrabalho}>
-        <form onSubmit={handleSubmit}>  
-          <ImageInput cl="img" bgImg={preview} thumbnail={thumbnail} setThumbnail={setThumbnail} setImage={setImage} />
-          <FormInput placeholder="Nome do trabalho" type="text" value={name} onChange={e => setName(e.target.value)}/>
-          <FormInput placeholder="Tipo de projecto" type="text" value={type} onChange={e => setType(e.target.value)}/>
-          <FormInput placeholder="Link do site" type="text" value={link} onChange={e => setLink(e.target.value)}/>
-          <AwesomeBTN type="submit" className="btn1"> Adicionar </AwesomeBTN>
-        </form>
-      </NovoTrabalhos> 
-    </main>
-  </Container>
-)
+        }
+        </Trabalhos>
+        <NovoTrabalhos show={showNovoTrabalho}>
+          <form onSubmit={handleSubmit}>  
+            <ImageInput cl="img" bgImg={preview} thumbnail={thumbnail} setThumbnail={setThumbnail} />
+            <FormInput placeholder="Nome do trabalho" type="text" value={name} onChange={e => setName(e.target.value)}/>
+            <FormInput placeholder="Tipo de projecto" type="text" value={type} onChange={e => setType(e.target.value)}/>
+            <FormInput placeholder="Link do site" type="text" value={link} onChange={e => setLink(e.target.value)}/>
+            <AwesomeBTN type="submit" className="btn1"> Adicionar </AwesomeBTN>
+          </form>
+        </NovoTrabalhos> 
+      </main>
+    </Container>
+  )
 } 

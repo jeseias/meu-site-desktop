@@ -18,6 +18,7 @@ export default  ({ cl, bgImg, thumbnail, setThumbnail, setImage }) =>
           setImage(e.target.files[0])
           setThumbnail(e.target.files[0])
       }}/>
+        onChange={e =>  setThumbnail(e.target.files[0]) }/>
       <MdCameraAlt size={28}/>
     </div>
   </Container>
