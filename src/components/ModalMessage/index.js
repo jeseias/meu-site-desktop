@@ -8,7 +8,7 @@ import { FaTrashAlt } from 'react-icons/fa'
 import { SecondTitle } from '../../Styles/typografy'
 import { Container } from './styles';
 
-export default ({ info: { name, msg, _id }, info, show, toggleModal}) => {
+export default ({ info: { name, msg, _id, email, tel1, tel2 }, info, show, toggleModal}) => {
 
   const handleClose = async id => {
     toggleModal() 
@@ -22,14 +22,22 @@ export default ({ info: { name, msg, _id }, info, show, toggleModal}) => {
 
   return ( 
     <Container show={show}> 
-      <main>
+      <div className="settings"> 
         <MdClose className="close" size={30} onClick={() => handleClose(_id)} /> 
+        <FaTrashAlt className='trash' size={20} onClick={() => deleteMessage(_id)}/>
+      </div>
+      <main>
         <SecondTitle>{ name }</SecondTitle> 
         <p className="text">
           {msg} 
         </p>
-        <FaTrashAlt className='trash' size={20} onClick={() => deleteMessage(_id)}/>
       </main>
+      <div className="info">
+        <div className="name"> Nome: <b>{ name }</b> </div>
+        <div className="name"> Email: <b>{ email }</b> </div>
+        <div className="name"> Telefone1: <b>{ tel1 }</b> </div>
+        <div className="name"> Telefone2: <b>{ tel2 }</b> </div>
+      </div>
     </Container>
   )
 }
