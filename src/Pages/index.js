@@ -25,3 +25,8 @@ export default () =>
     <Route path='/pages/trabalho' component={Trabalho}/>
   </Switch>
 </>
+
+/* 
+  1. Change the main pages images
+  
+*/

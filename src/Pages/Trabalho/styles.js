@@ -19,7 +19,7 @@ export const Container = styled.div`
       height: 100%;
       position: absolute;
       top: 0;
-      left: 0;
+      left: 0; 
     }
 
     form {
@@ -54,7 +54,7 @@ export const Trabalhos = styled.section`
     ${centerContent};
     height: 100%; 
     color: ${secondaryColor}; 
-  }
+  } 
 `
 
 export const NovoTrabalhos = styled.section`

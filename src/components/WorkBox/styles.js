@@ -37,14 +37,14 @@ export const Container = styled.div`
     left: 30%;
     color: #fff;
     top: 160px;
+    cursor: pointer;
   }
 
   .delete {
     left: -35%; 
   } 
 
-  &:hover {
-    cursor: pointer;
+  &:hover {  
 
     &::after {
       background: rgba(0,0,0,.8);
@@ -54,6 +54,10 @@ export const Container = styled.div`
       opacity: 1;
       top: 0;
     } 
+
+    h2 {
+      top: -30px;
+    }
 
     .icon, .delete {
       top: 120px;

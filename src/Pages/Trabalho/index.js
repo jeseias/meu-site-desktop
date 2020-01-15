@@ -5,6 +5,7 @@ import api from '../../services/api'
 import TabSwitch from '../../components/TabSwitch'
 import ImageInput from '../../components/ImageInput'
 import WorkBox from '../../components/WorkBox'
+import WorkModal from '../../components/WorkModal'
 
 import {  FormInput, AwesomeBTN  } from '../../Styles/components'
 import { Container, NovoTrabalhos, Trabalhos, TrabalhosBox } from './styles' 
@@ -16,6 +17,9 @@ export default () => {
     { name: 'Trabalhos', active: true, id: "trabalhos" },
     { name: 'Adicionar', active: false, id: "novotrabalho" } 
   ]) 
+
+  const [showModal, setModal] = useState(false) 
+  const [modalData, setModalData] = useState('null') 
   
   const [trabalhos, setTrabalhos] = useState(false) 
  
@@ -73,17 +77,30 @@ export default () => {
     setItems(newItems)
   } 
 
+  const showModalWithData = async id => {
+    const data = await api.get(`/works/${id}`)   
+    setModalData(data.data)
+    setModal(true)  
+  }  
+
   return ( 
     <Container className="PageContent">
       <TabSwitch elements={tabItems} changeItems={changeItems} /> 
       <main className="trabalhosMain"> 
         <Trabalhos show={showTrabalho}> 
+        <WorkModal show={showModal} setModal={setModal} modalData={modalData} />
           {
             trabalhos 
               ? 
                 <TrabalhosBox>
                   {
-                    trabalhos.map( work => <WorkBox key={work.id} work={work} /> )
+                    trabalhos.map( work => 
+                      <WorkBox 
+                        setModal={showModalWithData}
+                        key={work.id} 
+                        work={work} 
+                      /> 
+                    )
                   }
                 </TrabalhosBox> 
               :
