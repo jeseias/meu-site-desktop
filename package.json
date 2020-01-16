@@ -35,7 +35,7 @@
     "eject": "react-scripts eject",
     "preelectron-pack": "yarn build",
     "electron-pack": "build --em.main=build/electron.js",
-    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\""
+    "start:electron": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": "react-app"

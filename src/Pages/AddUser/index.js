@@ -1,51 +1,99 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import api from '../../services/api'
+
+// components
+import ImageInput from '../../components/ImageInput'
 
 // Images
 import me2 from '../../assets/me2.jpg'
 
 // Styles
 import { MainTitle } from '../../Styles/typografy' 
-import { AwesomeBTN } from '../../Styles/components' 
+import { AwesomeBTN, FormArea } from '../../Styles/components' 
 import { Container, FormInput } from './styles'
 
 export default ({ history }) => {
+  const [name, setName] = useState('')
+  const [location, setLocation] = useState('')
+  const [info1, setInfo1] = useState('')
+  const [info2, setInfo2] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [thumbnail, setThumbnail] = useState(null) 
+
+  const preview = useMemo(() => {
+    return thumbnail ? URL.createObjectURL(thumbnail) : null 
+  },[thumbnail])
 
   async function handleSubmit(e){
-    e.preventDefault() 
-
+    e.preventDefault()  
+    
     try {
-      const user = await api.post('/authentication', { email, password })  
+      let data = new FormData()
+  
+      data.append('name', name)
+      data.append('location', location)
+      data.append('info1', info1)
+      data.append('info2', info2)
+      data.append('email', email)
+      data.append('password', password)
+      data.append('thumbnail', thumbnail)
+
+      const user = await api.post('/register', data)  
+      alert('Usario criado com succesoo !!!')
+      history.push('/login')
     } catch (error) {
       console.log('Error:', error)
-      alert('Algum deu errado')
-    }
-    
+      alert("Wrong data")
+    } 
   }
 
 return ( 
-  <Container img={me2}> 
-    <div className="loginBox">
-      <MainTitle> Seja bem vindo de Volta <div id="infinity"></div> </MainTitle>
+  <Container img={me2}>  
+    <MainTitle> Cria um nova conta <div id="infinity"></div> </MainTitle>
 
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
+      <div className="box1"> 
+        <ImageInput cl="img" bgImg={preview} thumbnail={thumbnail} setThumbnail={setThumbnail}/>
         <FormInput 
           type="text" 
-          placeholder="Seu email aqui"
-          value={email}
-          onChange={e => setEmail(e.target.value)} 
+          placeholder="Seu nome"
+          value={name}
+          onChange={e => setName(e.target.value)} 
         /> 
         <FormInput 
+          type="text" 
+          placeholder="Seu email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        />
+        <FormInput 
           type="password" 
-          placeholder="Seu senha aqui"
+          placeholder="Sua senha"
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
-        <AwesomeBTN> Entrar </AwesomeBTN>
-      </form>
-    </div>
-    <div className="imgBox" /> 
+      </div>
+      <div className='box2'>
+        <FormInput 
+          type="text" 
+          placeholder="Onde Moras"
+          value={location}
+          onChange={e => setLocation(e.target.value)} 
+        />
+        <FormArea  
+          placeholder="Infromação sobre se"
+          value={info1}
+          onChange={e => setInfo1(e.target.value)} 
+        />
+        <FormArea  
+          placeholder="Mais informações sobre se"
+          value={info2}
+          onChange={e => setInfo2(e.target.value)} 
+        />
+      </div>
+      <AwesomeBTN className='btn'> Entrar </AwesomeBTN>
+    </form>  
   </Container>
 )}

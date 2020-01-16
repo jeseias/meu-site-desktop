@@ -10,7 +10,7 @@ import Profile from './Profile'
 import Service from './Servicepage'
 import Clientes from './Clientspage'
 import Messages from './Messagespage'
-import Trabalho from './Trabalho'
+import Trabalho from './Trabalho' 
 
 export default () =>
 <>
@@ -22,7 +22,7 @@ export default () =>
     <Route path='/pages/services' component={Service}/>
     <Route path='/pages/clientes' component={Clientes}/>
     <Route path='/pages/messages' component={Messages}/>
-    <Route path='/pages/trabalho' component={Trabalho}/>
+    <Route path='/pages/trabalho' component={Trabalho}/> 
   </Switch>
 </>
 

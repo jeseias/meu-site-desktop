@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import api from '../../services/api'
 
 // Images
@@ -48,6 +49,7 @@ return (
         />
         <AwesomeBTN> Entrar </AwesomeBTN>
       </form>
+      <Link className="user-create" to='/adduser'>Criar novo Usuario</Link>
     </div>
     <div className="imgBox" /> 
   </Container>

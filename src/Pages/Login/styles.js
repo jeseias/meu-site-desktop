@@ -10,7 +10,7 @@ export const Container = styled.div`
   padding: 105px;
   width: 100vw;
   height: 100vh;
-  background: ${secondaryColor};
+  background: ${secondaryColor}; 
 
   > div {
     width: 100%;
